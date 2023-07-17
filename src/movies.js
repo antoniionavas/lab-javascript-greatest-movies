@@ -108,20 +108,26 @@ function orderByYear(moviesArray) {
 function orderAlphabetically(moviesArray) {
 
     let cloneMoviesArrays = JSON.parse( JSON.stringify(moviesArray) )
-    cloneMoviesArrays.sort((elem2, elem1) => {
-        if(elem2.title > elem1.title){
+    cloneMoviesArrays.sort((elem1, elem2) => {
+        if(elem1.title > elem2.title){
             return 1
-        } else if (elem2.title < elem1.title) {
+        } else if (elem1.title < elem2.title) {
           return -1
         } else {
           return 0
         }   
-})
-    let result = cloneMoviesArrays.slice(0,20)
-    result.sort();
+});
 
-    return result;
+    let resultado = cloneMoviesArrays.slice(0, 20);
+
+    let resultadoFinal = resultado.map((element) =>{
+        return  element.title
+    } );
+        return resultadoFinal;
 }
+
+
+
 
 // BONUS - Iteration 7: Time Format - Turn duration of the movies from hours to minutes
 function turnHoursToMinutes(moviesArray) {}
